@@ -1,0 +1,12 @@
+services:
+  ableton-osc-mcp:
+    build: .
+    ports:
+      - "8765:8765"
+      - "11001:11001/udp"
+    environment:
+      ABLETON_OSC_MCP_HOST: 0.0.0.0
+      ABLETON_OSC_MCP_PORT: 8765
+      ABLETON_OSC_HOST: host.docker.internal
+      ABLETON_OSC_PORT: 11000
+      ABLETON_OSC_REPLY_PORT: 11001

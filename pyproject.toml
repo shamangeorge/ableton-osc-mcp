@@ -1,0 +1,35 @@
+[project]
+name = "ableton-osc-mcp"
+version = "0.1.0"
+description = "MCP server wrapping AbletonOSC (full LOM coverage + browser loading)"
+requires-python = ">=3.10"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+dependencies = [
+    "mcp>=1.2.0",
+    "python-osc>=1.8.3",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "flake8>=7.3.0",
+    "pytest>=8.4.0",
+]
+
+[project.scripts]
+ableton-osc-mcp = "ableton_osc_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ableton_osc_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
